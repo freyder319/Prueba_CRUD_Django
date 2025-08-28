@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo APP</title>
+</head>
+<!-- Tabla -->
+<body>
+    {% extends 'appSupermercado/layout.html' %}
+    {% block content %}
+    <h1 class="display-4 font-weight-bold text-center ">Productos</h1>
+    <hr></hr>
+    <div class="container">
+        <table class="table">
+        <thead class="table-active">
+            <tr class="bg-primary">
+            <th style="color:white" scope="col">Id</th>
+            <th style="color:white" scope="col">Nombre</th>
+            <th style="color:white" scope="col">Precio</th>
+            <th style="color:white" scope="col">Cantidad</th>
+            <th style="color:white" scope="col">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ciclo de  de laproductos base de datos  -->
+            {% for producto in producto %}
+            <tr>
+            <th scope="row">{{producto.idproducto}}</th>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td>{{producto.cantidad}}</td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="{% url 'editar' producto.idproducto %}">Editar</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'eliminar' producto.idproducto %}">Eliminar</a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+    <!-- <h1>Lista de Tareas</h1>
+    <ul>
+        {% for tarea in tareas %}
+        <li>{{tarea}}</li>
+        <button><a href="{% url 'eliminar' tarea.id %}">Eliminar</a></button>
+        <button><a href="{% url 'editar' tarea.id %}">Editar</a></button>
+        {% endfor %}
+    </ul>
+    {% endblock %} -->
+</body>
+</html>

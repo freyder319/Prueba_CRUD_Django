@@ -1,0 +1,14 @@
+{% extends 'appSupermercado/layout.html' %}
+{% block content %}
+<div class="container text-center">
+    <h1 class="display-4 font-weight-bold text-center ">Editar Producto</h1>
+    <hr></hr>
+<form method="post">
+     {% csrf_token %} 
+    <div class="form-group">
+    {{ form }}
+    </div>
+    <button type="submit" class="btn btn-primary">Editar Producto</button>
+</form>
+</div>
+{% endblock %}
